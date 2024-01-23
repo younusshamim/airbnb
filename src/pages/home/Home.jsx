@@ -6,6 +6,7 @@ import Inspiration from "./Inspiration/Inspiration";
 import Discover from "./Discover/Discover";
 import GiftCards from "./GiftCards/GiftCards";
 import Questions from "./Questions/Questions";
+import FutureGateway from "./FutureGateway/FutureGateway";
 
 const Home = () => {
   return (
@@ -20,6 +21,7 @@ const Home = () => {
       <Discover />
       <GiftCards />
       <Questions />
+      <FutureGateway />
     </Stack>
   );
 };

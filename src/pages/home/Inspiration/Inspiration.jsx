@@ -9,7 +9,7 @@ const Inspiration = () => {
   return (
     <Stack px="80px" gap="48px">
       <Heading fontSize="36px" fontWeight="500">
-        Inspiration Inspiration
+        Inspiration for your next trip
       </Heading>
 
       <Grid templateColumns="repeat(4, 1fr)" gap={"24px"}>
