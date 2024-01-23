@@ -5,7 +5,7 @@ import SearchButton from "./SearchButton";
 
 const SearchBar = () => {
   return (
-    <Flex justify="center" alignItems="center" px="80px" py="24px" bg="#000">
+    <Flex justify="center" alignItems="center" px="80px" py="24px">
       <HStack
         w="848px"
         h="64px"

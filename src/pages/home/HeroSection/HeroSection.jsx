@@ -7,7 +7,6 @@ const HeroSection = () => {
       justify="space-between"
       alignItems="center"
       px="80px"
-      bg="#000"
       position="relative"
       pb="96px"
     >

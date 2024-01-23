@@ -10,7 +10,6 @@ const Navbar = () => {
       alignItems="center"
       px="80px"
       color="#FFF"
-      bg="#000"
       h="48px"
     >
       <Image src={logo} alt="Your Vector" color="blue.500" />
