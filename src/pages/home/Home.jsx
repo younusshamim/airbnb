@@ -1,10 +1,11 @@
-import { Text } from "@chakra-ui/react";
+import { Stack } from "@chakra-ui/react";
+import Navbar from "./navbar/Navbar";
 
 const Home = () => {
   return (
-    <>
-      <Text>Home</Text>
-    </>
+    <Stack bg="#000">
+      <Navbar />
+    </Stack>
   );
 };
 
