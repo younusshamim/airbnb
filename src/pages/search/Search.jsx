@@ -1,5 +1,12 @@
+import { Stack } from "@chakra-ui/react";
+import Navbar from "./Navbar/Navbar";
+
 const Search = () => {
-  return <div>Search</div>;
+  return (
+    <Stack>
+      <Navbar />
+    </Stack>
+  );
 };
 
 export default Search;

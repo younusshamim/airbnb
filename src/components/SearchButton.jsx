@@ -1,7 +1,7 @@
 import { Flex } from "@chakra-ui/react";
 import { IoSearchOutline } from "react-icons/io5";
 
-const SearchButton = () => {
+const SearchButton = ({ ...rest }) => {
   return (
     <Flex
       fontSize="20px"
@@ -14,6 +14,7 @@ const SearchButton = () => {
       alignItems="center"
       cursor="pointer"
       _active={{ opacity: 0.8 }}
+      {...rest}
     >
       <IoSearchOutline />
     </Flex>
