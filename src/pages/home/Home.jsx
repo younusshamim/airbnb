@@ -4,6 +4,7 @@ import SearchBar from "./SearchBar/SearchBar";
 import HeroSection from "./HeroSection/HeroSection";
 import Inspiration from "./Inspiration/Inspiration";
 import Discover from "./Discover/Discover";
+import GiftCards from "./GiftCards/GiftCards";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
 
       <Inspiration />
       <Discover />
+      <GiftCards />
     </Stack>
   );
 };
