@@ -5,6 +5,7 @@ import HeroSection from "./HeroSection/HeroSection";
 import Inspiration from "./Inspiration/Inspiration";
 import Discover from "./Discover/Discover";
 import GiftCards from "./GiftCards/GiftCards";
+import Questions from "./Questions/Questions";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       <Inspiration />
       <Discover />
       <GiftCards />
+      <Questions />
     </Stack>
   );
 };
