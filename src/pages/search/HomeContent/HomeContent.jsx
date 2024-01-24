@@ -1,8 +1,12 @@
 import { Divider, HStack, Stack, Text } from "@chakra-ui/react";
-import homeList from "./homeList";
 import SingleHome from "./SingleHome";
+import { getHomeList } from "../../../utils/services";
+import { useQuery } from "react-query";
 
 const HomeContent = () => {
+  const { data, isLoading, error } = useQuery("homeList", getHomeList);
+  const homeList = data?.data || [];
+
   const filterList = [
     "Free cancellation",
     "Type of place",
@@ -38,9 +42,15 @@ const HomeContent = () => {
         }}
       />
 
-      {homeList.map((home, index) => (
-        <SingleHome home={home} key={index} />
-      ))}
+      {isLoading ? (
+        <Text fontWeight="500">Loading..</Text>
+      ) : error ? (
+        <Text fontWeight="500">{error.message}</Text>
+      ) : homeList.length === 0 ? (
+        <Text fontWeight="500">No data found!</Text>
+      ) : homeList.length > 0 ? (
+        homeList.map((home, index) => <SingleHome home={home} key={index} />)
+      ) : null}
     </Stack>
   );
 };

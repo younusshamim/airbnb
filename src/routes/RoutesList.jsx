@@ -11,16 +11,16 @@ const RoutesList = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/search",
         element: <Search />,
       },
-      {
-        path: "/details",
-        element: <Details />,
-      },
+      // {
+      //   path: "/home",
+      //   element: <Home />,
+      // },
+      // {
+      //   path: "/details",
+      //   element: <Details />,
+      // },
     ],
   },
 ]);
