@@ -4,7 +4,7 @@ import SearchFilter from "./SearchFilter";
 import User from "../../home/navbar/User";
 import { useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ setPlace }) => {
   const navigate = useNavigate();
 
   return (

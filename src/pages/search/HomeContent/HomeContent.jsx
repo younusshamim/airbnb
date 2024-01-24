@@ -2,10 +2,21 @@ import { Divider, HStack, Stack, Text } from "@chakra-ui/react";
 import SingleHome from "./SingleHome";
 import { getHomeList } from "../../../utils/services";
 import { useQuery } from "react-query";
+import { useEffect, useState } from "react";
+import { useSearchFilter } from "../../../context/SearchProvider";
+import searchHomesByDateAndPlace from "../../../utils/searchHomesByDateAndPlace";
 
 const HomeContent = () => {
-  const { data, isLoading, error } = useQuery("homeList", getHomeList);
-  const homeList = data?.data || [];
+  const { searchBtnClick, place, startDate, endDate } = useSearchFilter();
+  const [homeList, setHomeList] = useState([]);
+
+  const onSuccess = (data) => {
+    setHomeList(data.data);
+  };
+
+  const { data, isLoading, error } = useQuery("homeList", getHomeList, {
+    onSuccess,
+  });
 
   const filterList = [
     "Free cancellation",
@@ -14,6 +25,20 @@ const HomeContent = () => {
     "Instant Book",
     "More filters",
   ];
+
+  useEffect(() => {
+    const homeData = searchHomesByDateAndPlace(
+      homeList,
+      place,
+      startDate,
+      endDate
+    );
+    if (homeData) {
+      setHomeList(homeData);
+    } else {
+      setHomeList(data?.data);
+    }
+  }, [searchBtnClick]);
 
   return (
     <Stack p="40px" w="60%" gap="24px">

@@ -1,10 +1,19 @@
-import { HStack, Input } from "@chakra-ui/react";
-import { useState } from "react";
+import { HStack, Input, Box } from "@chakra-ui/react";
 import Divider from "../../../components/Divider";
 import SearchButton from "../../../components/SearchButton";
+import { useSearchFilter } from "../../../context/SearchProvider";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const SearchFilter = () => {
-  const handleSearch = () => {};
+  const {
+    place,
+    handlePlaceChange,
+    startDate,
+    endDate,
+    onChangeDate,
+    setSearchBtnClick,
+  } = useSearchFilter();
 
   return (
     <HStack
@@ -18,15 +27,35 @@ const SearchFilter = () => {
       border="1px solid #E5E7EB"
       gap="5px"
     >
-      <Input value="Bordeaux" variant="unstyled" fontSize="14px" />
+      <Input
+        onChange={handlePlaceChange}
+        value={place}
+        placeholder="Write Place"
+        variant="unstyled"
+        fontSize="14px"
+      />
 
       <Divider />
-      <Input value="Feb 19-26" variant="unstyled" fontSize="14px" />
+
+      <Box maxW="full" overflow="hidden" fontSize="14px">
+        <DatePicker
+          selected={startDate}
+          onChange={onChangeDate}
+          startDate={startDate}
+          endDate={endDate}
+          selectsRange
+          placeholderText="Date"
+        />
+      </Box>
 
       <Divider />
-      <Input value="2 guests" variant="unstyled" fontSize="14px" />
+      <Input placeholder="Guest" variant="unstyled" fontSize="14px" />
 
-      <SearchButton onClick={handleSearch} minW="32px" maxH="30px" />
+      <SearchButton
+        onClick={() => setSearchBtnClick((prev) => prev + 1)}
+        minW="32px"
+        maxH="30px"
+      />
     </HStack>
   );
 };
